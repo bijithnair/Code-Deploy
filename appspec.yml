@@ -1,16 +1,16 @@
 version: 0.0
 os: linux
 files:
-  - source: /
+  - source: /sample
     destination: /usr/share/tomcat/webapps
 hooks:
   BeforeInstall:
-    - location: /opt/script/stopserver.sh
+    - location: scripts/stopserver.sh
       timeout: 300
       runas: root
   AfterInstall:
-    - location: /opt/script/startserver.sh
+    - location: scripts/startserver.sh
       timeout: 300
       runas: root
   ValidateService:
-    - location: /opt/script/validateserver.sh
+    - location: scripts/validateserver.sh
